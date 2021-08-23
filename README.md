@@ -6,7 +6,7 @@ The project consist in a API to get the news per category using a protocol HTTP 
 - express: ^4.17.1,
 - mysql2: ^2.3.0
 
-The API was made using expressJS by creating the server. To make the comunication with the database was used the mysql dependence. 
+The API was made using expressJS by creating the server. To make the comunication with the database was used the mysql dependence. To see if the API is working, It was used the postman to make the http request.
 
 ## How to start the project 
 You need to use the mysql workbench to create a database called 'sistema_noticias' with two tables, 'categoria' and 'noticia'. Before it, check if you have the mysql is installed and running in your system. 

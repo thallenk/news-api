@@ -36,6 +36,32 @@ app.get('/news-api/v1/categorias', (req, res) => {
       });
   })
 
+// Busca noticias de uma categoria
+app.get('/news-api/v1/categorias/:categoriaId/noticias', (req, res) => {
+
+    // Busca Categorias no banco de dados
+    connection.query('SELECT id, titulo FROM sistema_noticias.noticia WHERE id_categoria = '+ req.params.categoriaId, function(err, rows, fields) {
+        if (err) throw err;
+
+
+        res.send(rows)
+
+      });
+  })
+
+// Busca noticia especifica pelo id
+app.get('/news-api/v1/categorias/:categoriaId/noticias/:noticiaId', (req, res) => {
+
+    // Busca Categorias no banco de dados
+    connection.query(`SELECT id, titulo, conteudo FROM sistema_noticias.noticia WHERE id_categoria = ${req.params.categoriaId} AND id = ${req.params.noticiaId}` , function(err, rows, fields) {
+        if (err) throw err;
+
+
+        res.send(rows[0])
+
+      });
+  })
+
 //Subindo servidor Node
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
